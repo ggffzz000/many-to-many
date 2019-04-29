@@ -1,0 +1,7 @@
+<%= form_for @user, :url => users_path do |f| %>
+    <%= f.label :login_name, "Name" %>
+    11
+    <%= f.text_field :login_name %>
+    <%= f.collection_check_boxes(:department_ids, Department.all, :id, :name) %>
+    <%= f.submit "Create" %>
+<% end %>
