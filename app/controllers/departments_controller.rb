@@ -27,6 +27,22 @@ end
 
 def show 
 end
+def like2
+     @department = Department.find(params[:id])
+     unless @department.find_like(current_user)  # 如果已经按讚过了，就略过不再新增
+        Like2.create( :user => current_user, :department => @department)
+      end
+  
+      redirect_to users_path
+    end
+  
+    def unlike2
+      @department = Department.find(params[:id])
+      like2 = @department.find_like(current_user)
+      like.destroy
+  
+      redirect_to posts_path
+    end
 
 private
 

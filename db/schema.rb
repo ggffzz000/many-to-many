@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190413095401) do
+ActiveRecord::Schema.define(version: 20190429035004) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.integer "tenant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "like2s", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "owner_type"
+    t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
