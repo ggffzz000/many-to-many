@@ -30,7 +30,19 @@ class UsersController < ApplicationController
   def show 
     @user = User.find(params[:id])
   end
+  
+  def hascomment
+    @user = User.find(params[:id])
+    Comment.create(:owner => @user)
+    redirect_to user_path(@user)
+  end
 
+  def hasnotcomment
+    @user = User.find(params[:id])
+    comment = @user.comments.first
+    comment.destroy
+    redirect_to user_path(@user)
+  end
   private
 
   def user_params

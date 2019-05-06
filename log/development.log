@@ -2140,3 +2140,361 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 81ms (Views: 77.1ms | ActiveRecord: 2.4ms)
 
 
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:11:59 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.7) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.7) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20190506035032)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "owner_type" varchar, "owner_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190506035032"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:12:25 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered users/index.html.erb within layouts/application (480.1ms)
+Completed 500 Internal Server Error in 501ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x00007f91a086ac70>:0x00007f91a0868a38>):
+     6:       <% user.departments.each do |g| %>
+     7:         <%= g.name %>
+     8:       <% end %>
+     9:       <%= link_to "good", hascomment_user_path(user), :method => post %>
+    10:       <%= link_to "Show", user_path(user) %>
+    11:       <%= link_to 'Edit', edit_user_path(user) %>
+    12:       <%= button_to 'Delete', user_path(user), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+  
+app/views/users/index.html.erb:9:in `block in _app_views_users_index_html_erb___1323716769381051683_70131720084620'
+app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb___1323716769381051683_70131720084620'
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:12:54 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mDepartment Load (0.8ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 13]]
+  Rendered users/index.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 529ms (Views: 525.5ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users/7/hascomment" for 127.0.0.1 at 2019-05-05 23:12:57 -0700
+Processing by UsersController#hascomment as HTML
+  Parameters: {"authenticity_token"=>"VNE0hHF6IyXSdr+dY0aZNi25/Q3NOhv70JaM58izkIN3shSfT9i7fAOWk27M56ogSNbHcjFfHrTnCAUWieBfdA==", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("owner_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["owner_type", "User"], ["owner_id", 7], ["created_at", "2019-05-06 06:12:58.005682"], ["updated_at", "2019-05-06 06:12:58.005682"]]
+  [1m[35m (14.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 36ms (ActiveRecord: 16.5ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2019-05-05 23:12:58 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  Rendered users/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:16:28 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered users/index.html.erb within layouts/application (20.4ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<User:0x00007f9189861a60>
+Did you mean?  comments
+               comments=):
+     6:       <% user.departments.each do |g| %>
+     7:         <%= g.name %>
+     8:       <% end %>
+     9:       <% if user.comment.present? %>
+    10:         <%= link_to "good", hascomment_user_path(user), :method => :post %>
+    11:       <% else %>
+    12:         <%= link_to "notgood", hasnotcomment_user_path(user), :method => :post %>
+  
+app/views/users/index.html.erb:9:in `block in _app_views_users_index_html_erb___1323716769381051683_70131527082780'
+app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb___1323716769381051683_70131527082780'
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:16:39 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 6], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 7], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 8], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 10], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 11], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 12], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 13], ["owner_type", "User"]]
+  Rendered users/index.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 89ms (Views: 85.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:17:03 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 6], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 7], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 8], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 10], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 11], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 12], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 13], ["owner_type", "User"]]
+  Rendered users/index.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:22:53 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 6], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 7], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 8], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 10], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 11], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 12], ["owner_type", "User"]]
+  [1m[36mDepartment Load (1.5ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 13], ["owner_type", "User"]]
+  Rendered users/index.html.erb within layouts/application (134.2ms)
+Completed 200 OK in 188ms (Views: 180.9ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/users/7/hasnotcomment" for 127.0.0.1 at 2019-05-05 23:22:55 -0700
+Processing by UsersController#hasnotcomment as HTML
+  Parameters: {"authenticity_token"=>"U7MugB81XEf8dyljsaZqBLzQ4BJYwLQAKAuYuoeIFpZw0A6bIZfEHi2XBZAeB1kS2b/abaSlsU8flRFLxtvZYQ==", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 329ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (undefined local variable or method `comment' for #<UsersController:0x00007f9189e53220>
+Did you mean?  hascomment):
+  
+app/controllers/users_controller.rb:42:in `hasnotcomment'
+Started POST "/users/7/hasnotcomment" for 127.0.0.1 at 2019-05-05 23:24:29 -0700
+Processing by UsersController#hasnotcomment as HTML
+  Parameters: {"authenticity_token"=>"U7MugB81XEf8dyljsaZqBLzQ4BJYwLQAKAuYuoeIFpZw0A6bIZfEHi2XBZAeB1kS2b/abaSlsU8flRFLxtvZYQ==", "id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 1.8ms)
+
+
+  
+NoMethodError (undefined method `comment' for #<User:0x00007f91899a4260>
+Did you mean?  comments
+               comments=):
+  
+app/controllers/users_controller.rb:42:in `hasnotcomment'
+Started POST "/users/7/hasnotcomment" for 127.0.0.1 at 2019-05-05 23:25:19 -0700
+Processing by UsersController#hasnotcomment as HTML
+  Parameters: {"authenticity_token"=>"U7MugB81XEf8dyljsaZqBLzQ4BJYwLQAKAuYuoeIFpZw0A6bIZfEHi2XBZAeB1kS2b/abaSlsU8flRFLxtvZYQ==", "id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["owner_id", 7], ["owner_type", "User"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 1]]
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 41ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2019-05-05 23:25:19 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  Rendered users/show.html.erb within layouts/application (34.3ms)
+Completed 200 OK in 70ms (Views: 67.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:25:23 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 6], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 7], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 8], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 10], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 11], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 12], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 13], ["owner_type", "User"]]
+  Rendered users/index.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 76ms (Views: 73.3ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/users/8/hascomment" for 127.0.0.1 at 2019-05-05 23:25:25 -0700
+Processing by UsersController#hascomment as HTML
+  Parameters: {"authenticity_token"=>"zTeV2wuAlQ4l3Djm6Vpj261Pj5mdaauQwSK813f+ZrzuVLXANSINV/Q8FBVG+1DNyCC15mEMrt/2vDUmNq2pSw==", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("owner_type", "owner_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["owner_type", "User"], ["owner_id", 8], ["created_at", "2019-05-06 06:25:25.190903"], ["updated_at", "2019-05-06 06:25:25.190903"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 13ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2019-05-05 23:25:25 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 54ms (Views: 51.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:25:28 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 6], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 7], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 8], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 10], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 11], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 12], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 13], ["owner_type", "User"]]
+  Rendered users/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 85ms (Views: 81.7ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/users/8/hasnotcomment" for 127.0.0.1 at 2019-05-05 23:25:29 -0700
+Processing by UsersController#hasnotcomment as HTML
+  Parameters: {"authenticity_token"=>"Hlbl+LLDfDP9UMKo9fmbJYkZ5X+o5C7iWMhocEPDGR89NcXjjGHkaiyw7ltaWKgz7HbfAFSBK61vVuGBApDW6A==", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["owner_id", 8], ["owner_type", "User"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 10ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2019-05-05 23:25:29 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 114ms (Views: 111.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-05 23:25:31 -0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 6]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 6], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 7], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 8], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 10]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 10], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 11], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 12], ["owner_type", "User"]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" INNER JOIN "tenants" ON "departments"."id" = "tenants"."department_id" WHERE "tenants"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."owner_id" = ? AND "comments"."owner_type" = ?[0m  [["owner_id", 13], ["owner_type", "User"]]
+  Rendered users/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 53ms (Views: 50.0ms | ActiveRecord: 1.5ms)
+
+

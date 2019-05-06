@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'welcome#hi'
-  resources :users 
+  resources :users do
+    member do
+      post "hascomment"
+      post "hasnotcomment"
+    end
+  end
   resources :departments do
     member do
       post "like2" =>  "departments#like2"
